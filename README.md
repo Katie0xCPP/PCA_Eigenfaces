@@ -1,42 +1,25 @@
-PCA Eigenfaces (Machine Learning Using Pure Linear Algebra)
+# PCA Eigenfaces (Machine Learning Using Pure Linear Algebra)
 
-This project implements a complete Eigenfaces face-recognition pipeline using Principal Component Analysis (PCA), written entirely in GNU Octave and developed inside Visual Studio Code as a fully free MATLAB-compatible workflow.
+This project implements a complete Eigenfaces face-recognition pipeline using Principal Component Analysis (PCA). It is written entirely in GNU Octave and developed inside Visual Studio Code as a free, MATLAB-compatible workflow.
 
-Overview
+## Overview
 
-This project performs:
+This project includes:
+- Loading and preprocessing grayscale facial images
+- Converting images into high-dimensional vectors
+- Constructing the data matrix for PCA
+- Computing the mean face and covariance matrix
+- Performing eigenvalue and eigenvector decomposition
+- Visualizing eigenfaces
+- Projecting images into a lower-dimensional PCA space
+- Classifying images using k-Nearest Neighbors
+- Reporting test accuracy
 
-Image loading and preprocessing
+All computations are implemented using standard linear algebra without machine learning libraries.
 
-Construction of a high-dimensional data matrix
+## Project Structure
 
-Mean subtraction and covariance matrix computation
-
-Eigenvalue and eigenvector decomposition
-
-Visualization of eigenfaces
-
-Dimensionality reduction using PCA
-
-Classification in PCA space using k-Nearest Neighbors
-
-Accuracy evaluation
-
-All computation is implemented using standard linear algebra without machine learning libraries.
-
-Tech Stack
-
-GNU Octave
-
-Visual Studio Code
-
-Octave VS Code extension
-
-MATLAB/Octave .m scripts
-
-PNG or JPG face images
-
-Project Structure
+```
 PCA_Eigenfaces/
   data/
     train/
@@ -48,64 +31,67 @@ PCA_Eigenfaces/
     project_pca.m
     knn_classifier.m
   README.md
+```
 
+Each person should have their own folder inside `data/train` and `data/test`, containing their face images.
 
-Images should be organized so that each person has their own folder inside train/ and test/.
+## Requirements
 
-How to Run
-1. Install GNU Octave
+- GNU Octave (free MATLAB alternative)
+- Visual Studio Code
+- VS Code Octave extension
 
-Download from: https://octave.org/download
+## Installation
 
-2. Install VS Code Extensions
+1. Install GNU Octave  
+   Download from: https://octave.org/download
 
-Octave
+2. Install the "Octave" extension in VS Code.
 
-(Optional) Octave Debugger
+3. Configure VS Code to use your Octave executable.  
+   In VS Code, open:
 
-3. Configure VS Code
+   `Preferences: Open User Settings (JSON)`
 
-Open Preferences: Open User Settings (JSON) and add your Octave executable path:
+   Add:
 
-"octave.executablePath": "C:\\Octave\\Octave-9.1.0\\mingw64\\bin\\octave-gui.exe"
+   ```json
+   "octave.executablePath": "C:\\Octave\\Octave-9.1.0\\mingw64\\bin\\octave-gui.exe"
+   ```
 
+   Adjust the path to match your installation.
 
-Adjust the path based on your installation directory.
+## Running the Project
 
-4. Open the Project Folder in VS Code
-5. Run the Program
+1. Open the project folder in VS Code.
+2. Place training and testing images into the correct subfolders.
+3. Run the program using:
 
-Use the VS Code run command:
+   - VS Code: press `Ctrl + F5`, or  
+   - Terminal:
 
-Ctrl + F5
+     ```
+     octave src/main.m
+     ```
 
+## Output
 
-or run directly from a terminal:
+The script will generate:
+- The mean face
+- A set of eigenfaces (principal components)
+- PCA projections of training and test images
+- k-NN predictions
+- Overall classification accuracy
 
-octave src/main.m
+## Features
 
-Example Outputs
+- Fully free toolchain using GNU Octave
+- MATLAB-compatible `.m` scripts
+- PCA implemented from first principles
+- Face recognition using classical linear algebra
+- Easy to extend for additional experiments
 
-Running the project will produce:
+## License
 
-Mean face visualization
+This project is open-source and free to use.
 
-Several leading eigenfaces
-
-PCA-based projections
-
-k-NN classification results
-
-Overall accuracy
-
-Features
-
-Works entirely with free tools
-
-MATLAB-compatible syntax
-
-Fully implemented PCA pipeline
-
-Easy to customize or extend
-
-Suitable for undergraduate machine learning coursework or portfolio use
